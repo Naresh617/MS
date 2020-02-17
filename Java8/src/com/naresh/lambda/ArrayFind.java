@@ -78,6 +78,7 @@ public class ArrayFind {
 	
 	
 	//Above all requirements are satisfied 
+	//using Bitwise XOR Operation 
 	private static int XorApproachMethod(int[] a) {
 		int result=0;
 		
