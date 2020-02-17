@@ -58,7 +58,7 @@ public class ArrayFind {
 	}
 
 	
-	//above requirement this method is  correct Time Complexity O(n)  but here we  table  additional Hashmap  space complexity not satisfied O(n) 
+	//above requirement this method is  correct Time Complexity O(n)  but here we  able to add  additional Hashmap   so space complexity not satisfied O(n) 
 	private static Integer hashMapApproachMethod(int[] a) {
 
 		HashMap<Integer, Integer> hmap = new HashMap<Integer, Integer>(a.length);
