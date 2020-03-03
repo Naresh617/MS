@@ -2,17 +2,19 @@ package com.apspdcl.controller;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.apspdcl.model.Trippings;
+import com.apspdcl.util.JDBCConnection;
 
 @WebServlet("/TrippingController")
 public class TrippingController extends HttpServlet {
@@ -27,23 +29,27 @@ public class TrippingController extends HttpServlet {
 		doGet(request, response);
 		String feederName=request.getParameter("fname");
 		String ehtname=request.getParameter("ehtname");
+		ArrayList<Trippings> tripping=new ArrayList<Trippings>();
 		  
-	     try {
-	    	 Class.forName("oracle.jdbc.driver.OracleDriver");  
-	    	 Connection con=DriverManager.getConnection(  
-	    	 "jdbc:oracle:thin:@localhost:1521:xe","naresh","naresh");  
-	 		PreparedStatement ps=con.prepareStatement("select * from emp");  
+	     try { 
+	        Connection con=JDBCConnection.getConnection();
+	 		PreparedStatement ps=con.prepareStatement("select * from emp where empno='7900'");  
 	 		ResultSet rs=ps.executeQuery();  
-			 while (rs.next()) {  
-			           System.out.println("Name= "+rs.getString(2)+"\t"+"Paasword= "+rs.getString(3));      
+	 		Trippings t=new Trippings();
+			 while (rs.next()) { 
+				 t.setCircleName(rs.getString(1));
+				 tripping.add(t);
 			 }
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
 			e.printStackTrace();
 		}  
+	     
+	     request.setAttribute("trippings", tripping);
+	     request.getRequestDispatcher("index.jsp").forward(request, response);
 	     
 	}
 

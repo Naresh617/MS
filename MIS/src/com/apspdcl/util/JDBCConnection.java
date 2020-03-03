@@ -6,25 +6,32 @@ import java.sql.SQLException;
 
 public class JDBCConnection {
 
-	private static JDBCConnection jdbc;
-	// JDBCSingleton prevents the instantiation from any other class.
-	private JDBCConnection() {
-	}
-	// Now we are providing gloabal point of access.
-	public static JDBCConnection getInstance() {
-		if (jdbc == null) {
-			jdbc = new JDBCConnection();
+	private static Connection conn = null;
+
+	public static Connection getConnection() throws Exception {
+		if (conn == null) {
+			String driver = "oracle.jdbc.driver.OracleDriver";
+			String url = "jdbc:oracle:thin:@localhost:1521:xe";
+			String userName = "naresh";
+			String password = "naresh";
+
+			Class.forName(driver).newInstance();
+			conn = DriverManager.getConnection(url, userName, password);
 		}
-		return jdbc;
-	}
 
-	// to get the connection from methods like insert, view etc.
-	private static Connection getConnection() throws ClassNotFoundException, SQLException {
-		Connection con = null;
-		Class.forName("oracle.jdbc.driver.OracleDriver");
-		con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "system", "6170");
-		return con;
-
+		return conn;
 	}
+	
+	public static void closeConnection(Connection conn) {
+
+        try {
+
+            conn.close();
+
+        } catch (SQLException e) {
+
+        }
+
+    }
 
 }
