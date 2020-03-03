@@ -33,11 +33,12 @@ public class TrippingController extends HttpServlet {
 		  
 	     try { 
 	        Connection con=JDBCConnection.getConnection();
-	 		PreparedStatement ps=con.prepareStatement("select * from emp where empno='7900'");  
+	 		PreparedStatement ps=con.prepareStatement("SELECT * FROM TRIPPING WHERE NAME33KV='"+feederName+"'");  
 	 		ResultSet rs=ps.executeQuery();  
 	 		Trippings t=new Trippings();
 			 while (rs.next()) { 
-				 t.setCircleName(rs.getString(1));
+				 t.setDistrict(rs.getString("DISTRICT"));
+				 t.setPtrCapacityName(rs.getString("NAME33KV"));
 				 tripping.add(t);
 			 }
 		} catch (SQLException e) {

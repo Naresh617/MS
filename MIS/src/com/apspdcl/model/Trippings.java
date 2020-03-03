@@ -5,6 +5,7 @@ public class Trippings {
 	private String district;
 	private String ptrCapacityEhtEnd;
 	private String ptrCapacity33kvFeederEnd;
+	private String ptrCapacityName;
 	private String circleName;
 	private String divion;
 	private String subdivision;
@@ -17,6 +18,15 @@ public class Trippings {
 	private String durationTrippingTime;
 	private String reasonForTripping;
 	
+	
+	
+	
+	public String getPtrCapacityName() {
+		return ptrCapacityName;
+	}
+	public void setPtrCapacityName(String ptrCapacityName) {
+		this.ptrCapacityName = ptrCapacityName;
+	}
 	public String getDistrict() {
 		return district;
 	}

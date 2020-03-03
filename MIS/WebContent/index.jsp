@@ -36,11 +36,11 @@
       <div class="row">
          <div class="col">
          <label for="uname"><strong>District Name</strong></label>
-         <input type="text" class="form-control" id="dname" name="dname" placeholder=" Enter 33KV Feeder Name" name="fname" required="required" value="${tripping.circleName }">
+         <input type="text" class="form-control" id="dname" name="dname" placeholder=" Enter 33KV Feeder Name" name="fname" required="required" value="${tripping.district}">
       </div>
       <div class="col">
          <label for="uname"><strong>PTR CAPCITY @EHT LEVEL</strong></label>
-         <input type="text" class="form-control" id="dname" name="dname" placeholder=" Enter 33KV Feeder Name" name="fname" required="required">
+         <input type="text" class="form-control" id="dname" name="dname" placeholder=" Enter 33KV Feeder Name" name="fname" required="required" value="${tripping.ptrCapacityName}">
       </div>
       <div class="col">
          <label for="uname"><strong>PTR CAPACTIY @33KV FEEDER</strong></label>
