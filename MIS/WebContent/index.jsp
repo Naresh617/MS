@@ -9,83 +9,45 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <style>
+  .card {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+body{
+background-color: #82E0AA 
+}
+h1{
+color: white
+}
+  </style>
 </head>
-<body>
-
+<body >
 <div class="container">
-  <form action="TrippingController" method="post">
-  <br>
-    <div class="row">
-      <div class="col">
-         <label for="uname">33KV Feeder Name</label>
-        <input type="text" class="form-control" id="email" placeholder=" Enter 33KV Feeder Name" name="fname" required="required">
+<h1 class="text-center mt-5">Welcome MIS Planning Application</h1>
+<div class="container pt-3">
+  <div class="row justify-content-sm-center">
+    <div class="col-sm-10 col-md-6">
+      <div class="card border-info">
+        <div class="card-header">PLANNING MIS</div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6 text-center">
+              <img src="https://www.apspdcl.in/img/apple-touch-icon.png">
+              <h4 class="text-center">Login</h4>
+            </div>
+            <div class="col-md-6">
+              <form class="form-signin">
+                <input type="text" class="form-control mb-2" placeholder="Enter User Name" required autofocus>
+                <input type="password" class="form-control mb-2" placeholder="Password" required>
+                <button class="btn btn-lg btn-primary btn-block mb-1" type="submit">Sign in</button>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="col">
-        <label for="uname">EHT SS Name</label>
-        <input type="password" class="form-control" placeholder="Enter EHT SS Name" name="ehtname" required="required">
-      </div>
-    </div><br>
-    <div class="row">
-     <div class="col">
-        <input type="submit" class="btn btn-info" value="Submit">
-      </div>
-     </div>
-     </form>
-     <c:forEach var="tripping" items="${trippings }">
-      <br>
-      <div class="row">
-         <div class="col">
-         <label for="uname"><strong>District Name</strong></label>
-         <input type="text" class="form-control" id="dname" name="dname" placeholder=" Enter 33KV Feeder Name" name="fname" required="required" value="${tripping.district}">
-      </div>
-      <div class="col">
-         <label for="uname"><strong>PTR CAPCITY @EHT LEVEL</strong></label>
-         <input type="text" class="form-control" id="dname" name="dname" placeholder=" Enter 33KV Feeder Name" name="fname" required="required" value="${tripping.ptrCapacityName}">
-      </div>
-      <div class="col">
-         <label for="uname"><strong>PTR CAPACTIY @33KV FEEDER</strong></label>
-         <input type="text" class="form-control" id="dname" name="dname" placeholder=" Enter PTR CAPACTIY @33KV FEEDER" name="fname" required="required">
-      </div>
-      </div>
-      <div class="row">
-      <div class="col"><br>
-         <label for="uname"><strong>PTR CAPCITY @EHT LEVEL</strong></label>
-         <input type="text" class="form-control" id="dname" name="dname" placeholder=" Enter PTR CAPCITY @EHT LEVEL" name="fname" required="required">
-      </div>
-       <div class="col"><br>
-         <label for="uname"><strong>CIRCLE</strong></label>
-         <input type="text" class="form-control" id="dname" name="dname" placeholder=" Enter CIRCLE" name="fname" required="required">
-      </div>
-        <div class="col"><br>
-         <label for="uname"><strong>DIVISION</strong></label>
-         <input type="text" class="form-control" id="dname" name="dname" placeholder=" Enter DIVISION" name="fname" required="required">
-      </div>
-      </div>
-       <div class="row">
-         <div class="col"><br>
-         <label for="uname"><strong>SUBDIVISION</strong></label>
-         <input type="text" class="form-control" id="dname" name="dname" placeholder=" Enter CIRCLE" name="fname" required="required">
-      </div>
-      <div class="col"><br>
-         <label for="uname"><strong>MD</strong></label>
-         <input type="text" class="form-control" id="dname" name="dname" placeholder=" Enter DIVISION" name="fname" required="required">
-      </div>
-      <div class="col"><br>
-         <label for="uname"><strong>NATURE OF FEEDER</strong></label>
-          <select
-					class="form-control" id="exampleFormControlSelect1">
-					<option>URBAN</option>
-					<option>RURAL</option>
-				</select>
-			</div>
-      </div>
-       <div class="row">
-      	<div class="col"><br>
-         <label for="uname"><strong>DATE</strong></label>
-         <input type="DATE" class="form-control" id="dname" name="dname" placeholder=" Enter DIVISION" name="fname" required="required">
-      	</div>
-      </div>
-      </c:forEach>
     </div>
+  </div>
+</div>
+</div>
 </body>
 </html>

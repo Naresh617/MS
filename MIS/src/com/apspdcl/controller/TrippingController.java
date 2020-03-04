@@ -38,7 +38,7 @@ public class TrippingController extends HttpServlet {
 		TrippingDao dao = new TrippingDao();
 		ArrayList<Trippings> tripping = dao.getFeederDetails(feederName, ehtname);
 		request.setAttribute("trippings", tripping);
-		request.getRequestDispatcher("index.jsp").forward(request, response);
+		request.getRequestDispatcher("main.jsp").forward(request, response);
 
 	}
 
